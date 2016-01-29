@@ -31,6 +31,8 @@
 		2EFDED79DF315CC032278FE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EFDEEE98A22C568B3A734A7 /* GoogleService-Info.plist */; };
 		2EFDEFBEC1BCC8D903B1EF54 /* UILabel+DynamicFontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDEF0AB3E7EA166A55E0B8 /* UILabel+DynamicFontSize.m */; };
 		32612CB11C5905520052E6C9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32612CB01C5905520052E6C9 /* MainViewController.m */; };
+		32CD10B71C5A549E00D8A8E8 /* FrendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CD10B51C5A549E00D8A8E8 /* FrendsTableViewCell.m */; };
+		32CD10B81C5A549E00D8A8E8 /* FrendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CD10B61C5A549E00D8A8E8 /* FrendsTableViewCell.xib */; };
 		32D1FE111C58C95800EC1858 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D1FE0F1C58C95800EC1858 /* Default.png */; };
 		32D1FE121C58C95800EC1858 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D1FE101C58C95800EC1858 /* Default-568h@2x.png */; };
 		32D1FE141C58D40200EC1858 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32D1FE131C58D40200EC1858 /* Montserrat-Regular.otf */; };
@@ -368,6 +370,9 @@
 		2EFDEFFD54FB7634E5A151D4 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		32612CAF1C5905520052E6C9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		32612CB01C5905520052E6C9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		32CD10B41C5A549E00D8A8E8 /* FrendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrendsTableViewCell.h; sourceTree = "<group>"; };
+		32CD10B51C5A549E00D8A8E8 /* FrendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrendsTableViewCell.m; sourceTree = "<group>"; };
+		32CD10B61C5A549E00D8A8E8 /* FrendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrendsTableViewCell.xib; sourceTree = "<group>"; };
 		32D1FE0F1C58C95800EC1858 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		32D1FE101C58C95800EC1858 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		32D1FE131C58D40200EC1858 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
@@ -815,10 +820,37 @@
 		32612CAE1C5905400052E6C9 /* NewClassMainView */ = {
 			isa = PBXGroup;
 			children = (
+				32CD10B11C5A548400D8A8E8 /* FriendsCell */,
+				32CD10B21C5A548400D8A8E8 /* Top100Cell */,
+				32CD10B31C5A548400D8A8E8 /* VerifiedCell */,
 				32612CAF1C5905520052E6C9 /* MainViewController.h */,
 				32612CB01C5905520052E6C9 /* MainViewController.m */,
 			);
 			path = NewClassMainView;
+			sourceTree = "<group>";
+		};
+		32CD10B11C5A548400D8A8E8 /* FriendsCell */ = {
+			isa = PBXGroup;
+			children = (
+				32CD10B41C5A549E00D8A8E8 /* FrendsTableViewCell.h */,
+				32CD10B51C5A549E00D8A8E8 /* FrendsTableViewCell.m */,
+				32CD10B61C5A549E00D8A8E8 /* FrendsTableViewCell.xib */,
+			);
+			path = FriendsCell;
+			sourceTree = "<group>";
+		};
+		32CD10B21C5A548400D8A8E8 /* Top100Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Top100Cell;
+			sourceTree = "<group>";
+		};
+		32CD10B31C5A548400D8A8E8 /* VerifiedCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VerifiedCell;
 			sourceTree = "<group>";
 		};
 		414520ACF25F79938BFFD181 /* SoundEngine */ = {
@@ -1795,6 +1827,7 @@
 				32D1FE161C58F54C00EC1858 /* Montserrat-Light.otf in Resources */,
 				41452866C771C2AA4A31F62A /* MG15.mp3 in Resources */,
 				41452D35BF671058AF0A25D9 /* MG74_4.mp3 in Resources */,
+				32CD10B81C5A549E00D8A8E8 /* FrendsTableViewCell.xib in Resources */,
 				C6A5F83E1BE36DA400BA3F41 /* dot_gray.png in Resources */,
 				41452ABB473AA899C3AFC207 /* MG46.mp3 in Resources */,
 				41452459731F55400357DA83 /* MG77_4.mp3 in Resources */,
@@ -1899,6 +1932,7 @@
 				41452F3D5D5AA2229AD189FB /* UIButton+Extra.m in Sources */,
 				41452F738C2B30DE8DDD3C85 /* UIView+Round.m in Sources */,
 				414523F4CCC73A13F7399695 /* UIView+FrameCategory.m in Sources */,
+				32CD10B71C5A549E00D8A8E8 /* FrendsTableViewCell.m in Sources */,
 				41452A2F1933027516B46AE4 /* emailSignInVC.m in Sources */,
 				C689A40A1BDF226B00B0C7B4 /* MTextField.m in Sources */,
 				414526CBB5A65F0D3CAC01AE /* emailSignUpVC.m in Sources */,
