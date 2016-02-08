@@ -7,7 +7,45 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
+#import "GetChallenge.h"
+#import "SRWebSocket.h"
+//#import "AnswerViewController.h"
+#import "YesterDayViewController.h"
+#import "LevelsFriendsViewController.h"
+#import "ProfileViewController.h"
+//#import "WelcomeViewController.h"
+@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,ResponseDelegate,UIGestureRecognizerDelegate>{
+    int userid,page;
+    BOOL hasNextPage;
+    GetChallenge *chaView;
+ NSMutableArray *challengerArr;
+    
+    NSString *beanTime;
+    NSTimer *m_pTimer;
+    NSDate *m_pStartDate;
+    NSDate *newDate;
+ double oddTime;
+    
+    
+    NSString *stringButtonOption;
+    int userUserId;
+    
+    
+    
+    UIView *_background;
+    UIButton *_cancelButton;
+    UIView *_challengeView;
+    UILabel *_oppNameLabel;
+    UIButton *_buttonChallenge;
+    int _friendId;
+    
+    int LevelChallenge;
+    
+    
+}
 
+<<<<<<< Updated upstream
 @interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,retain)  UIView *MainFrontView,*SliderView;
@@ -15,8 +53,31 @@
 @property (nonatomic,retain)  UILabel *NameLabel,*FrendsLabel,*Top100Label,*VerifiedLabel;
 @property (nonatomic,retain) UITableView *tableDetail;
 
+=======
+@property (nonatomic,retain)  UIView *MainFrontView,*SliderView;
+@property (nonatomic,retain)  UIImageView *largeImage,*BottomImageFrend,*Bottom100Image,*verifiedBottom;
+@property (nonatomic,retain)  UILabel *NameLabel,*FrendsLabel,*Top100Label,*VerifiedLabel;
+@property (nonatomic,retain) UITableView *tableDetail;
+
+>>>>>>> Stashed changes
 @property (nonatomic,retain)  UIImageView *HomeIcon,*YeterDayImage,*NotificationImage,*MusicImage,*SoundImage,*PlayImage,*ContactUsImage,*TermsImage,*LogoutImage;
 @property (nonatomic,retain)  UILabel *HomeLabel,*YesterdayLabel,*NotificationLabel,*MusicLabel,*SoundLabel,*PlayLabel,*ContactUsLabel,*TermsLabel,*Logoutlabel;
 @property (nonatomic,retain) UIButton *HomeButton,*YesterdayButton,*HowtoPlayButton,*ContactButton,*TermsButton,*LogoutButton;
 @property (nonatomic,retain)  UIImageView *ArrowHome,*ArrowYesterday,*ArrowHowtoplay,*ArrowContactUs,*ArrowTerms,*ArrowLogout;
+<<<<<<< Updated upstream
+=======
+@property (nonatomic,retain) NSMutableArray *_userArray;
+@property(nonatomic, assign) BOOL isFindFriend;
+
+@property (nonatomic, assign) NSInteger fid;
+@property (nonatomic,retain)  UILabel *DateLabel,*DayLabel;
+
+
+
+@property (nonatomic,retain)  LevelsFriendsViewController *levelsFriends;
+
+@property (nonatomic,retain) UIView *ChallengeView;
+@property (nonatomic,retain) UIImageView *ChallengeUserImage,*challengeRate1,*Challengerate2,*challengerate3,*challengerate4,*challengerate5;
+@property (nonatomic,retain) UILabel *challengeNameLabel;
+>>>>>>> Stashed changes
 @end

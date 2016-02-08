@@ -101,7 +101,7 @@
 //upper view
     _upperView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight / 2)];
     _upperView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_upperView];
+    //[self.view addSubview:_upperView];
 
 //----------------------------mine info-------------------------------
     _userInfoView = [[UserInformation alloc] initWithFrame:CGRectMake(1, 15, kScreenWidth, _upperView.height - 15 - 70)];
@@ -137,7 +137,7 @@
 //below view
     _belowView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight / 2, kScreenWidth, kScreenHeight / 2)];
     _belowView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_belowView];
+   // [self.view addSubview:_belowView];
 
 //--------------------------Robots information or other information---------------------------------
     _oppInfoView = [[UserInformation alloc] initWithFrame:CGRectMake(1, 15, kScreenWidth, _belowView.height - 15 - 70)];
@@ -375,17 +375,22 @@
  * Show my information ( in the next half of the screen ) ; 24 seconds countdown, after resume timing (layout adjust )
  * Click on "join game" send action = @ "begin", hidden time, show opponent
  */
-
+    [self UIAcceptChallenge];
+    
     if (_isChallenger) {
         _isChallenger = NO;
         NSLog(@"isChallenger");
         [_upperView addSubview:_userInfoView];
         [_belowView addSubview:_waiting];
         [self.view addSubview:_iconVs];
+         [self.MyacceptChallengeImageView sd_setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"SaveImageUrl"]] placeholderImage:[UIImage imageNamed:@"PlaceholderImageWithoutBorder"]];
+        [self.MyNameLabel setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"SaveUserName"]];
         waitCD24 = 24;
         waitTimer24 = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(time24) userInfo:nil repeats:YES];
 
-    } else if (_isAccept) {
+    }
+    else if (_isAccept)
+    {
         _isAccept = NO;
         NSLog(@"isAccept");
         [_belowView addSubview:_userInfoView];
@@ -428,6 +433,10 @@
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
+             NSDictionary *data = responseObject;
+             UserInfo *userInfo = [UserInfo objectWithKeyValues:data[@"data"]];
+               [self.UseracceptChallengeImageView sd_setImageWithURL:[NSURL URLWithString:[userInfo valueForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"PlaceholderImageWithoutBorder"]];
+             [self.UserNameLabel setText:[NSString stringWithFormat:@"%@ %@",userInfo.firstname,userInfo.lastname]];
 
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
@@ -673,7 +682,43 @@
                 [self getQuestions];
             }];
 }
+-(void)UIAcceptChallenge{
+    self.AcceptChallengeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.AcceptChallengeView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"AcceptChallengeScreen"]]];
+    [self.view addSubview:self.AcceptChallengeView];
+    [self.AcceptChallengeView setHidden:YES];
+    
+    self.MyacceptChallengeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(31, 49, 70, 70)];
+    [self.MyacceptChallengeImageView setImage:[UIImage imageNamed:@"PlaceholderImageWithoutBorder"]];
+    [[self.MyacceptChallengeImageView layer] setCornerRadius:self.MyacceptChallengeImageView.frame.size.width/2];
+    [self.MyacceptChallengeImageView setClipsToBounds:YES];
+    [self.AcceptChallengeView addSubview:self.MyacceptChallengeImageView];
+    
+    
+    self.UseracceptChallengeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(219, 49, 70, 70)];
+    [[self.UseracceptChallengeImageView layer] setCornerRadius:self.MyacceptChallengeImageView.frame.size.width/2];
+    [self.UseracceptChallengeImageView setClipsToBounds:YES];
+    [self.AcceptChallengeView addSubview:self.UseracceptChallengeImageView];
 
+    self.MyNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 140, 120, 30)];
+    //[DayLabel setText:[NSString stringWithFormat:@"Day %ld/7", (long) [componets weekday]]];
+    
+    [self.MyNameLabel setTextColor:[UIColor whiteColor]];
+    [self.MyNameLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
+    [self.MyNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.AcceptChallengeView addSubview:self.MyNameLabel];
+    
+    
+    self.UserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(170, 140, 120, 30)];
+    //[DayLabel setText:[NSString stringWithFormat:@"Day %ld/7", (long) [componets weekday]]];
+    [self.UserNameLabel setText:@"MasterCreationz"];
+    [self.UserNameLabel setTextColor:[UIColor whiteColor]];
+    [self.UserNameLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14.0]];
+    [self.UserNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.AcceptChallengeView addSubview:self.UserNameLabel];
+    
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

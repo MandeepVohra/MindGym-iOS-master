@@ -14,6 +14,10 @@
 {
     // Initialization code
     self.ProfilePic.layer.cornerRadius = self.ProfilePic.frame.size.width/2;
+<<<<<<< Updated upstream
+=======
+    self.ProfilePic.clipsToBounds = YES;
+>>>>>>> Stashed changes
     self.LabelCount.layer.cornerRadius = 11;
     self.LabelCount.clipsToBounds = YES;
     [self.LabelCount setBackgroundColor:[UIColor redColor]];
